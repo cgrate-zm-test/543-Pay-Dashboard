@@ -4808,7 +4808,6 @@ License - nucleoapp.com/license/
 
 .sidebar .logo .simple-text,
 .off-canvas-sidebar .logo .simple-text {
-  text-transform: uppercase;
   padding: 0.5rem 0;
   display: block;
   white-space: nowrap;

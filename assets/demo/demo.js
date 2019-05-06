@@ -96,7 +96,7 @@ demo = {
 
   initChartsPages: function() {
     chartColor = "#FFFFFF";
-
+    /*
     ctx = document.getElementById('chartHours').getContext("2d");
 
     myChart = new Chart(ctx, {
@@ -172,7 +172,7 @@ demo = {
         },
       }
     });
-
+    */
 
     ctx = document.getElementById('chartEmail').getContext("2d");
 
