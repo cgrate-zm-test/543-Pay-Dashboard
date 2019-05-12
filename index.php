@@ -25,10 +25,10 @@ include_once dirname(__FILE__) . "./head_elements.php";
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-title">Registration Trend</h5>
-                    <p class="card-category">Line Chart with Points</p>
+                    <p class="card-category">Cumulative and per day registration trend.</p>
                 </div>
                 <div class="card-body">
-                    <canvas id="speedChart"></canvas>
+                    <canvas id="sub_trend_line_chart"></canvas>
                 </div>
                 <div class="card-footer">
                     <hr>
@@ -86,7 +86,7 @@ include_once dirname(__FILE__) . "./bottom_elements.php";
         dashboard.getTotalCustomers();
         dashboard.getTotalCustomerAccounts();
         dashboard.getTransSharesCounts();
-        demo.initChartsPages();
+        dashboard.initSubscriptionTrendLineChart();
     });
 </script>
 </body>

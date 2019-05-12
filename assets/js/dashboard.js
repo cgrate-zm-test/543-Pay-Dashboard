@@ -118,5 +118,51 @@ var dashboard = {
                 },
             }
         });
+    },
+    initSubscriptionTrendLineChart:function(){
+        var speedCanvas = document.getElementById("sub_trend_line_chart");
+
+        var dataFirst = {
+            label:'Per Day',
+            data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+            fill: false,
+            borderColor: '#fbc658',
+            backgroundColor: 'transparent',
+            pointBorderColor: '#fbc658',
+            pointRadius: 4,
+            pointHoverRadius: 4,
+            pointBorderWidth: 8,
+        };
+
+        var dataSecond = {
+            label:'Cumulative',
+            data: [0, 5, 10, 12, 20, 27, 30, 34, 42, 45, 55, 63],
+            fill: true,
+            borderColor: '#51CACF',
+            backgroundColor: 'transparent',
+            pointBorderColor: '#51CACF',
+            pointRadius: 4,
+            pointHoverRadius: 4,
+            pointBorderWidth: 8
+        };
+
+        var speedData = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [dataFirst, dataSecond]
+        };
+
+        var chartOptions = {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        };
+
+        var lineChart = new Chart(speedCanvas, {
+            type: 'line',
+            hover: false,
+            data: speedData,
+            options: chartOptions
+        });
     }
 }
