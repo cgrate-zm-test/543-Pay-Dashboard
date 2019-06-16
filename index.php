@@ -7,42 +7,6 @@ include_once dirname(__FILE__) . "./head_elements.php";
         <div class="col-md-6">
             <div class="card card-chart">
                 <div class="card-header ">
-                    <h5 class="card-title">Transaction Shares</h5>
-                    <p class="card-category">Transaction type percentages</p>
-                </div>
-                <div class="card-body ">
-                    <canvas id="trans_type_share_pie_chart"></canvas>
-                </div>
-                <div class="card-footer ">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Data is refreshed every 10 minutes
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-title">Registration Trend</h5>
-                    <p class="card-category">Cumulative and per day registration trend.</p>
-                </div>
-                <div class="card-body">
-                    <canvas id="sub_trend_line_chart"></canvas>
-                </div>
-                <div class="card-footer">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Data is refreshed every 5 hours
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card-chart">
-                <div class="card-header ">
                     <h5 class="card-title">Registered Users</h5>
                     <p class="card-category">Total count of registered customers</p>
                 </div>
@@ -75,6 +39,42 @@ include_once dirname(__FILE__) . "./head_elements.php";
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header ">
+                    <h5 class="card-title">Transaction Shares</h5>
+                    <p class="card-category">Transaction type percentages</p>
+                </div>
+                <div class="card-body ">
+                    <canvas id="trans_type_share_pie_chart"></canvas>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Data is refreshed every 10 minutes
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h5 class="card-title">Registration Trend</h5>
+                    <p class="card-category">Cumulative and per day registration trend.</p>
+                </div>
+                <div class="card-body">
+                    <canvas id="sub_trend_line_chart"></canvas>
+                </div>
+                <div class="card-footer">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-history"></i> Data is refreshed every 5 hours
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?php
 include_once dirname(__FILE__) . "./bottom_elements.php";
@@ -86,7 +86,7 @@ include_once dirname(__FILE__) . "./bottom_elements.php";
         dashboard.getTotalCustomers();
         dashboard.getTotalCustomerAccounts();
         dashboard.getTransSharesCounts();
-        dashboard.initSubscriptionTrendLineChart();
+        dashboard.getSubTrendStats();
     });
 </script>
 </body>

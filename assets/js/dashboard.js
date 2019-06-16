@@ -3,10 +3,12 @@ var dashboard = {
     timerDurFetchTotalCustomers: 10000,
     timerDurFetchTotalCustomerAccounts: 10000,
     timerDurFetchTotalTransShares:600000,
+    timerDurFetchSubTrendStats:60000*(60*5),
     allowedOperations: {
         get_total_subs_count: "GetTotalSubsCount",
         get_trans_shares:"GetTransShares",
-        get_total_cust_accounts_count:"GetTotalCustAccounts"
+        get_total_cust_accounts_count:"GetTotalCustAccounts",
+        get_sub_trend_stats:"GetSubTrendStats"
     },
     getTotalCustomers: function () {
         //Display a loader if required
@@ -51,6 +53,23 @@ var dashboard = {
                     if(parseInt(data.resp_code) === 0) {
                         dashboard.initTransactionSharesPieChart(data);
                         setTimeout(dashboard.getTransSharesCounts, dashboard.timerDurFetchTotalTransShares);
+                    }
+                }
+            }
+        )
+    },
+    getSubTrendStats:function(){
+        //Display a loader if required
+        $.ajax({
+                url: dashboard.poolerUrl,
+                dateType: 'json',
+                method: 'POST',
+                data: {operation: dashboard.allowedOperations.get_sub_trend_stats},
+                success: function (data) {
+                    data = JSON.parse(data);
+                    if(parseInt(data.resp_code) === 0){
+                        dashboard.initSubscriptionTrendLineChart(data);
+                        setTimeout(dashboard.getSubTrendStats, dashboard.timerDurFetchSubTrendStats);
                     }
                 }
             }
@@ -119,12 +138,11 @@ var dashboard = {
             }
         });
     },
-    initSubscriptionTrendLineChart:function(){
+    initSubscriptionTrendLineChart:function(data){
         var speedCanvas = document.getElementById("sub_trend_line_chart");
-
         var dataFirst = {
             label:'Per Day',
-            data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+            data: data.subs,
             fill: false,
             borderColor: '#fbc658',
             backgroundColor: 'transparent',
@@ -136,7 +154,7 @@ var dashboard = {
 
         var dataSecond = {
             label:'Cumulative',
-            data: [0, 5, 10, 12, 20, 27, 30, 34, 42, 45, 55, 63],
+            data: data.cum_subs,
             fill: true,
             borderColor: '#51CACF',
             backgroundColor: 'transparent',
@@ -147,7 +165,7 @@ var dashboard = {
         };
 
         var speedData = {
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: data.dates,
             datasets: [dataFirst, dataSecond]
         };
 

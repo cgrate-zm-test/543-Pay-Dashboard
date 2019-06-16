@@ -42,12 +42,15 @@ class LosinoStatsEngine{
         $return_res = array();
         $sel_rs = mysqli_query($this->db_connection, $db_query);
         if($sel_rs && mysqli_num_rows($sel_rs) > 0){
-            $row_num = 0;
-            while ($sel_res_row = mysqli_fetch_array($sel_rs)){
-                $return_res[$row_num]['date'] = $sel_res_row[0];
-                $return_res[$row_num]['total'] = $sel_res_row[1];
-                ++$row_num;
+            $count = 0;
+            $dates = array();
+            $subs  = array();
+            while ($sel_res_row = mysqli_fetch_assoc($sel_rs)){
+                $dates[$count] = substr($sel_res_row['sub_date'], strlen(date('Y-')));
+                $subs[$count]  = $sel_res_row['total_day_subs'];
+                $count++;
             }
+            $return_res = array("dates" => $dates, "subs" => $subs);
         }
 
         return $return_res;
