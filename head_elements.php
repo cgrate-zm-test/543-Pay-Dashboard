@@ -41,13 +41,19 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
-            <a href="./dashboard.html">
-              <i class="nc-icon nc-bank"></i>
+          <li class="<?php if(isset($feature_name) && $feature_name == 'dashboard') echo 'active'; ?>">
+            <a href="index.php">
+              <i class="nc-icon nc-chart-bar-32"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="<?php if(isset($feature_name) && $feature_name == 'issuer_stats') echo 'active'; ?>">
+            <a href="issuer_stats.php">
+              <i class="nc-icon nc-bank"></i>
+              <p>Issuer Stats</p>
+            </a>
+          </li>
+		  <li>
             <a href="#">
               <i class="nc-icon nc-diamond"></i>
               <p>Future Use</p>

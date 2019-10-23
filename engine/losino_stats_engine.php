@@ -31,6 +31,23 @@ class LosinoStatsEngine{
         }
 
         return $return_res;
+    } 
+	
+	/**
+     * Function : Used to get the issuer sub shares
+     * @param $db_query
+     * @return array
+     */
+    public function get_issuer_sub_shares($db_query){
+        $return_res = array();
+        $sel_rs = mysqli_query($this->db_connection, $db_query);
+        if($sel_rs && mysqli_num_rows($sel_rs) > 0){
+            while ($sel_res_row = mysqli_fetch_assoc($sel_rs)){
+                $return_res[$sel_res_row['issuer_name']] = $sel_res_row['total_subs'];
+            }
+        }
+
+        return $return_res;
     }
 
     /**
@@ -52,7 +69,6 @@ class LosinoStatsEngine{
             }
             $return_res = array("dates" => $dates, "subs" => $subs);
         }
-
         return $return_res;
     }
 

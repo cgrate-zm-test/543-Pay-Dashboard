@@ -1,5 +1,6 @@
 <?php
-include_once dirname(__FILE__) . "./head_elements.php";
+$feature_name = 'dashboard';
+include_once dirname(__FILE__) . "/./head_elements.php";
 ?>
 </div> -->
 <div class="content">
@@ -77,7 +78,7 @@ include_once dirname(__FILE__) . "./head_elements.php";
     </div>
 </div>
 <?php
-include_once dirname(__FILE__) . "./bottom_elements.php";
+include_once dirname(__FILE__) . "/./bottom_elements.php";
 ?>
 <script src="assets/js/dashboard.js"></script>
 <script>

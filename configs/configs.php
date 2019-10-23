@@ -1,2 +1,2 @@
 <?php
-define("PAST_DATE_NO", 12);
+define("PAST_DATE_NO", 5);

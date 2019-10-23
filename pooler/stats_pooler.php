@@ -9,7 +9,8 @@ $possible_operations = array(
     "get_trans_shares" => "GetTransShares",
     "get_sub_trend_stats" => "GetSubTrendStats",
     "get_total_subs_count" => "GetTotalSubsCount",
-    "get_total_cust_accounts_count" => "GetTotalCustAccounts"
+    "get_total_cust_accounts_count" => "GetTotalCustAccounts",
+    "get_total_issuer_subs_count" => "GetTotalIsserSubsCount"
 );
 
 $operation = isset($_POST['operation']) ? stripslashes($_POST['operation']) : "";
@@ -27,7 +28,13 @@ elseif ($operation != "" && $operation == $possible_operations['get_total_cust_a
     echo $total_subs;
 }
 elseif ($operation != "" && $operation == $possible_operations['get_trans_shares']) {
-    $trans_shares = $stats_engine->get_trans_shares(GET_TRANS_SHARES);
+    $past_date = date('Y-m-d', strtotime("-".PAST_DATE_NO." days"));
+    $sel_qr = str_replace("{past_n_days_date}", $past_date, GET_TRANS_SHARES);
+    $trans_shares = $stats_engine->get_trans_shares($sel_qr);
+    echo json_encode(array('resp_code' => 0, 'data' => $trans_shares));
+}
+elseif ($operation != "" && $operation == $possible_operations['get_total_issuer_subs_count']) {
+    $trans_shares = $stats_engine->get_issuer_sub_shares(GET_ISSUER_SUB_SHARES);
     echo json_encode(array('resp_code' => 0, 'data' => $trans_shares));
 }
 elseif ($operation != "" && $operation == $possible_operations['get_sub_trend_stats']) {

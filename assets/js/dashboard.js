@@ -99,7 +99,7 @@ var dashboard = {
 
                 plugins: {
                     labels: {
-                        render: 'percentage',
+                        render: 'value',
                         fontColor: '#000',
                         precision: 2,
                         position: 'outside'

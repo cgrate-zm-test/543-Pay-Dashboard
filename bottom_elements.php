@@ -4,13 +4,13 @@
             <nav class="footer-nav">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com" target="_blank">cGrate ZM</a>
+                  <a href="https://www.543.co.zm/" target="_blank">cGrate ZM</a>
                 </li>
                 <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">543 Konse Konse</a>
+                  <a href="https://www.543.co.zm/" target="_blank">543 Konse Konse</a>
                 </li>
                 <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                  <a href="https://www.543.co.zm/" target="_blank">Licenses</a>
                 </li>
               </ul>
             </nav>
@@ -32,8 +32,6 @@
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chart JS -->
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -42,5 +40,3 @@
   <script src="assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
   <!-- Labels for the charts -->
   <script src="assets/js/chartjs-plugin-labels.js" type="text/javascript"></script>
-  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="assets/demo/demo.js"></script>
