@@ -54,6 +54,20 @@
             </a>
           </li>
 		  <li>
+            <li class="<?php if(isset($feature_name) && $feature_name == 'cc_gen_quer') echo 'active'; ?>">
+            <a href="cc_gen_quer.php">
+              <i class="nc-icon nc-atom"></i>
+              <p>General Query</p>
+            </a>
+          </li>
+            <li>
+            <li class="<?php if(isset($feature_name) && $feature_name == 'cc_cout_quer') echo 'active'; ?>">
+                <a href="cc_cout_quer.php">
+                    <i class="nc-icon nc-cloud-download-93"></i>
+                    <p>Cashout Query</p>
+                </a>
+            </li>
+		  <li>
             <a href="#">
               <i class="nc-icon nc-diamond"></i>
               <p>Future Use</p>
@@ -74,7 +88,12 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">543 Pay Dashboard</a>
+            <a class="navbar-brand" href="#pablo"><?php
+                if(isset($page_title)){
+                    echo $page_title;
+                } else {
+                    echo "543 Pay Dashboard";
+                } ?></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
